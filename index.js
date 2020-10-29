@@ -23,6 +23,12 @@ const adapterConfig = {
 const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
   onConnect: process.env.CREATE_TABLES !== 'true' && initialiseData,
+  cookie: {
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 1000 * 60 * 60 * 24 * 30,
+    sameSite: false,
+  },
+  cookieSecret: process.env.COOKIE_SECRET
 });
 
 keystone.createList('OrangeStaff', OrangeStaff);
@@ -42,7 +48,6 @@ module.exports = {
     new GraphQLApp(),
     new AdminUIApp({
       name: 'Orangesoft Portal',
-      enableDefaultRoute: false,
       authStrategy,
       hooks: require.resolve('./custom-hooks-path')
     }),

@@ -1,5 +1,6 @@
-import { ItemId, AddNewItem } from '@keystonejs/app-admin-ui/components';
+import { ItemId, AddNewItem, ListTable } from '@keystonejs/app-admin-ui/components';
 import React from 'react';
+import Dashboard from './Dashboard';
 
 export default {
   pages: () => [
@@ -9,12 +10,5 @@ export default {
         { listKey: 'OrangeStaff', label: 'Staff' },
       ],
     }
-  ],
-  itemHeaderActions: () => (
-    <div>
-      <ItemId />
-      <AddNewItem />
-      <p>Hello world</p>
-    </div>
-  ),
+  ]
 };

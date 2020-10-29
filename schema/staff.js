@@ -56,7 +56,7 @@ module.exports = {
       },
     }
   },
-  labelField: 'email',
+  labelResolver: item => `${item.lastname} ${item.firstname}`,
   adminConfig: {
     defaultColumns: 'lastname, firstname, email, technologies',
     defaultSort: 'lastname',
