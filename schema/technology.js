@@ -11,7 +11,6 @@ module.exports = {
   },
   labelField: 'name',
   access: {
-    read: access.userIsAdminOrOwner,
     update: access.userIsAdmin,
     create: access.userIsAdmin,
     delete: access.userIsAdmin,

@@ -6,12 +6,22 @@ module.exports = {
     firstname: {
       type: Text,
       label: 'Name',
-      isRequired: true
+      isRequired: true,
+      access: {
+        update: access.userIsAdminOrOwner,
+        create: access.userIsAdmin,
+        delete: access.userIsAdmin,
+      }
     },
     lastname: {
       type: Text,
       label: 'Surname',
-      isRequired: true
+      isRequired: true,
+      access: {
+        update: access.userIsAdminOrOwner,
+        create: access.userIsAdmin,
+        delete: access.userIsAdmin,
+      }
     },
     technologies: {
       type: Relationship,
@@ -23,36 +33,62 @@ module.exports = {
       type: Relationship,
       ref: 'EnglishLevel',
       label: 'English level',
-      many: false
+      many: false,
+      aaccess: {
+        update: access.userIsAdminOrOwner,
+        create: access.userIsAdmin,
+        delete: access.userIsAdmin,
+      }
     },
     skillLevel: {
       type: Relationship,
       ref: 'Skill',
       label: 'Level',
-      many: false
+      many: false,
+      access: {
+        update: access.userIsAdminOrOwner,
+        create: access.userIsAdmin,
+        delete: access.userIsAdmin,
+      }
     },
     location: {
       type: Relationship,
       ref: 'Location',
       label: 'Address',
-      many: false
+      many: false,
+      access: {
+        update: access.userIsAdminOrOwner,
+        create: access.userIsAdmin,
+        delete: access.userIsAdmin,
+      }
     },
     email: {
       type: Text,
       isUnique: true,
       label: 'Адрес эл. почты',
-      isRequired: true
+      isRequired: true,
+      access: {
+        update: access.userIsAdminOrOwner,
+        create: access.userIsAdmin,
+        delete: access.userIsAdmin,
+      }
     },
     password: {
       type: Password,
       label: 'Пароль',
-      isRequired: true
+      isRequired: true,
+      access: {
+        update: access.userIsAdminOrOwner,
+        create: access.userIsAdmin,
+        delete: access.userIsAdmin,
+      }
     },
     isAdmin: {
       type: Checkbox,
       label: 'Права администратора',
       access: {
         update: access.userIsAdmin,
+        
       },
     }
   },
