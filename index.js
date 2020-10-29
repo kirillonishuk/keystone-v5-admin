@@ -28,7 +28,7 @@ const keystone = new Keystone({
     maxAge: 1000 * 60 * 60 * 24 * 30,
     sameSite: false,
   },
-  cookieSecret: process.env.COOKIE_SECRET
+  cookieSecret: process.env.COOKIE_SECRET,
 });
 
 keystone.createList('OrangeStaff', OrangeStaff);
